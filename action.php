@@ -87,10 +87,11 @@ class action_plugin_forceuserchange extends DokuWiki_Action_Plugin
     }
 
     protected function user_required_to_stop($user = null) {
+        global $INPUT;
         $grps = $this->get_user_groups($user);
         $has_group = array_search($this->getConf('groupname'), $grps) !== false;
         if ($this->getConf('grouprel') == 'excluding') {
-            return !$has_group; // users not having the group are required to stop
+            return !empty($INPUT->server->str('REMOTE_USER')) && !$has_group; // users not having the group are required to stop
         }else{
             return $has_group;
         }
