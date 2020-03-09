@@ -1,0 +1,7 @@
+base   forceuserchange
+author Henry Pan
+email  dokuwiki.plugin@phy25.com
+date   2020-03-09
+name   forceuserchange plugin
+desc   Enforce password change before user can log in.
+url    https://www.dokuwiki.org/plugin:forceuserchange
